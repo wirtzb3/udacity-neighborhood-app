@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Escape the Weather</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1 id="header-title">Escape the Weather</h1>
+      <h3 id="header-caption">...because your weather currently sucks</h3>
+    </header>
+    <div id="navbar">
+      <div><input id="showCities" type="button" value="Show Listings"></div>
+    </div>
+    <div id="map"></div>
+    <script src="js/app.js"></script>
+    <script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi_Os9EZAB7gHK1gZxGSwRqKPBVkHMDrU&callback=initMap">
+     </script>
+     <script src="js/knockout.js"></script>
+  </body>
+</html>
