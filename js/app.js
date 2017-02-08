@@ -187,7 +187,7 @@ function initMap() {
     {title: 'Memorial Stadium', location: {lat: 47.622815, lng:	-122.349530}}
   ];
 
-  // var largeInfowindow = new google.maps.Infowindow();
+  var largeInfowindow = new google.maps.InfoWindow();
 
   //Create an array of markers using location array
   for (var i = 0; i < locations.length; i++) {
@@ -204,17 +204,55 @@ function initMap() {
 
     markers.push(marker);
 
-  //   var defaultIcon = makeMarkerIcon('#658d1b');
+    marker.addListener('click', function() {
+      populateInfoWindow(this, largeInfowindow);
+    });
+
+    // var defaultIcon = makeMarkerIcon('#658d1b');
   };
-  document.getElementById('showCities').addEventListener('click', showCities);
+  document.getElementById('showLocations').addEventListener('click', showLocations);
+  document.getElementById('hideLocations').addEventListener('click', hideLocations);
 };
 
+// This function populates the infowindow when the marker is clicked. We'll only allow
+// one infowindow which will open at the marker that is clicked, and populate based
+// on that markers position.
+function populateInfoWindow(marker, infowindow) {
+  // Check to make sure the infowindow is not already opened on this marker.
+  if (infowindow.marker != marker) {
+    // Clear the infowindow content to give the streetview time to load.
+    infowindow.marker = marker;
+    infowindow.setContent('<div>' + marker.title + '</div>');
+    infowindow.open(map, marker);
+    // Make sure the marker property is cleared if the infowindow is closed.
+    infowindow.addListener('closeclick', function() {
+      infowindow.marker = null;
+    });
+  };
+};
+
+// This function takes in a COLOR, and then creates a new marker
+// icon of that color. The icon will be 21 px wide by 34 high, have an origin
+// of 0, 0 and be anchored at 10, 34).
 // function makeMarkerIcon(markerColor) {
-//
+//   var markerImage = new google.maps.MarkerImage(
+//     'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+//     '|40|_|%E2%80%A2',
+//     new google.maps.Size(21, 34),
+//     new google.maps.Point(0, 0),
+//     new google.maps.Point(10, 34),
+//     new google.maps.Size(21,34));
+//   return markerImage;
 // }
 
-function showCities() {
+function showLocations() {
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
+  };
+};
+
+function hideLocations() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
   };
 };
