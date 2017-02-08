@@ -5,7 +5,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  color: #61707D;
+  color: #1d252d;
   background-color: #F5FBEF;
   font-family: 'Lato', sans-serif;
 }
@@ -13,7 +13,7 @@ body {
 header {
   width: 100%;
   height: 100px;
-  background-color: #40F99B;
+  background-color: #658d1b;
   display: flex;
   flex-wrap: wrap;
 }
@@ -33,7 +33,7 @@ header {
 #navbar {
   width: 24%;
   height: 100%;
-  background-color: #E85D75;
+  background-color: #236192;
   float: left;
   margin-top: 15px;
   border-radius: 5px;
