@@ -27,5 +27,9 @@ var ViewModel = function() {
 };
 
 var View = function() {
-
+  viewMap = new google.maps.MAP(document.getElementById('map'), {
+    center: {lat: 47.537559, lng: -122.281480},
+    zoom: 11,
+    style: styles,
+  })
 };
