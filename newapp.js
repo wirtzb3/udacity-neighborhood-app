@@ -71,12 +71,12 @@ var ViewModel = function() {
   self.filterOptions = ko.observableArray([
     'All', 'Restaurants', 'Alcohol/Bars', 'Stadium', 'March gathering'
   ]);
-  self.selectedFilter = ko.observable();
+  self.selectedFilter = ko.observable('All');
   self.filteredList = ko.computed(function(){
     return self.ecsList().filter(function(listItem){
-      if (listItem === 'All') {
-        return true
-      }
+      // if (listItem === 'All') {
+      //   return true
+      // }
       return listItem.locationType() === self.selectedFilter();
     })
   });
