@@ -74,6 +74,9 @@ var ViewModel = function() {
   self.selectedFilter = ko.observable();
   self.filteredList = ko.computed(function(){
     return self.ecsList().filter(function(listItem){
+      if (listItem === 'All') {
+        return true
+      }
       return listItem.locationType() === self.selectedFilter();
     })
   });
@@ -279,7 +282,6 @@ function initMap() {
       id: i
     });
 
-    // markers.push(marker);
     marker.setMap(map);
   };
 };

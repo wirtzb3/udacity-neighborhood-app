@@ -1,6 +1,5 @@
 html,
 body {
-  font-family: Arial, sans-serif;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -39,16 +38,23 @@ header {
 
 #navbar {
   width: 24%;
-  height: 95%;
+  height: 100%;
   background-color: #236192;
   float: left;
   margin-top: 15px;
   border-radius: 5px;
 }
 
+select {
+  border: 2px solid #658d1b;
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
 #map {
   height: 100%;
-  width: 65%;
+  width: 75%;
   float: right;
   margin-top: 15px;
   border-radius: 5px;
