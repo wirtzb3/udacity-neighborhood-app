@@ -2,18 +2,25 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css"/>
     <title>KO Experimentation</title>
   </head>
   <body>
     <div>
       <h1 id="header-title">ECS Locator</h1>
       <h5 id="header-caption">Notable locations for fans of the Seattle Sounders FC</h5>
+      <p>
+        <select data-bind="options: filterOptions, value: selectedFilter"></select>
+      </p>
+      <ul data-bind="foreach: filteredList">
+        <li data-bind="text: name"></li>
+      </ul>
     </div>
     <ul></ul>
 
-
+    <div id="map"></div>
     <script src="js/knockout.js"></script>
-    <script src="js/newapp.js"></script>
+    <script src="newapp.js"></script>
     <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi_Os9EZAB7gHK1gZxGSwRqKPBVkHMDrU&callback=initMap">
      </script>
